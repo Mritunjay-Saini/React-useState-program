@@ -9,7 +9,9 @@ import AutoRefreshClock from './AutoRefreshClock';
 import OnlineStatusChecker from './OnlineStatusChecker';
 import FormAutoSaver from './FormAutoSaver';
 import Greeting from './Greeting';
+import StorePreviousCount from './StorePreviousCount';
 import './App.css';
+import { MainFocus } from './MainFocus';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -21,7 +23,7 @@ function App() {
       const minutes = now.getMinutes();
 
       const totalMinutes = hours * 60 + minutes;
-      const darkModeStart = 1 * 60 + 20;
+      const darkModeStart = 8 * 60 + 20;
 
       if (totalMinutes >= darkModeStart) {
         setIsDarkMode(true);
@@ -46,8 +48,11 @@ function App() {
           <Link to="/AutoRefreshClock" className="border px-3 py-1 rounded hover:bg-white hover:text-black transition">AutoRefreshClock</Link>
           <Link to="/OnlineStatusChecker" className="border px-3 py-1 rounded hover:bg-white hover:text-black transition">OnlineStatusChecker</Link>
           <Link to="/FormAutoSaver" className="border px-3 py-1 rounded hover:bg-white hover:text-black transition">FormAutoSaver</Link>
-        </nav>
+          <Link to="/StorePreviousCount" className="border px-3 py-1 rounded hover:bg-white hover:text-black transition">StorePreviousCount</Link>
+          
 
+        </nav>
+        <MainFocus/>
         <div className="p-4">
           <Routes>
             <Route path="/" element={<Counter />} />
@@ -59,6 +64,9 @@ function App() {
             <Route path="/AutoRefreshClock" element={<AutoRefreshClock />} />
             <Route path="/OnlineStatusChecker" element={<OnlineStatusChecker />} />
             <Route path="/FormAutoSaver" element={<FormAutoSaver />} />
+            <Route path="/StorePreviousCount" element={<StorePreviousCount />} />
+
+
           </Routes>
         </div>
       </div>
